@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
-import Waitlist from "./pages/Waitlist.jsx";
+import Waitlist from "./pages/Waitlist";
 import Pricing from "./pages/Pricing.jsx";
 export default function App() {
   useEffect(() => {

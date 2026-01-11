@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 
 // Global styles from the original site
+import './styles/design-tokens.css'
 import './styles/page.css'
 import './styles/about.css'
 import './styles/contact.css'

@@ -1,0 +1,571 @@
+/* =====================================================
+   StudentVerse – small visual overrides
+   Keep existing structure; only fix requested issues.
+   ===================================================== */
+
+/* 1) How it Works: bigger icon circle + icons */
+.how-it-works-v3-icon-holder {
+  width: 96px !important;
+  height: 96px !important;
+}
+
+.how-it-works-v3-icon-holder .feature-icon {
+  width: 48px !important;
+  height: 48px !important;
+}
+
+/* Some icons are SVGs/images (depends on the export) */
+.how-it-works-v3-icon-holder svg,
+.how-it-works-v3-icon-holder img {
+  width: 48px !important;
+  height: 48px !important;
+}
+
+/* 2) Remove the "weird glow/light" behind brand logos */
+.partner-banner-aurora,
+.graident-for-logos {
+  display: none !important;
+}
+
+/* 3) Make sure the FAQ section isn't accidentally hidden */
+.ease-faq-section,
+.ease-faq-container-01 {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* 4) Credit Card CTA Styles */
+.card-image-on-app-holder {
+  z-index: 2;
+  perspective: 1500px;
+  border-radius: 28px;
+  width: 100%;
+  position: absolute;
+  top: 16%;
+}
+
+.card-image-on-app-cta {
+  z-index: 2;
+  border-radius: 28px;
+  width: 100%;
+  box-shadow: 0 14px 44px #00000073;
+}
+
+/* Card hover animation: start slightly lowered/scaled, lift to identity on hover
+   The inline style provided by the user is applied on hover to match the
+   requested transform and preserve-3d behavior. */
+.card-image-on-app-cta,
+.card-image-on-app-holder .card-image-on-app-cta {
+  transition: transform 220ms cubic-bezier(.22, .9, .3, 1), box-shadow 220ms ease, opacity 200ms ease;
+  transform: translate3d(0px, 6px, 0px) scale3d(.995, .995, 1);
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  opacity: 0.98;
+}
+
+.card-image-on-app-cta:hover,
+.card-image-on-app-holder:hover .card-image-on-app-cta {
+  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  transform-style: preserve-3d;
+  opacity: 1;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+/* 5) Fix invisible logos (Navbar & Trust Bar) */
+.company-logo,
+.brand-image,
+.footer-brand-image {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Ensure containers for logos are visible */
+.trusted-by,
+.company-logo-holder,
+.fade-in-on-scroll,
+.navbar-holder,
+.brand-holder,
+.hiw-icon {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* 6) Force brand image size if it's collapsing */
+.brand-image {
+  max-height: 40px !important;
+  /* Adjust as needed */
+  width: auto !important;
+}
+
+.footer-brand-image {
+  max-height: 40px !important;
+  /* Adjust as needed */
+  width: auto !important;
+}
+
+/* 7) Trustbar: consolidated styles - single-row logos, no clipping */
+.trustbar {
+  padding: 36px 0;
+}
+
+.trustbar-inner {
+  width: min(1280px, 96vw);
+  margin: 0 auto;
+  padding: 28px 32px;
+  border-radius: 22px;
+  background:
+    radial-gradient(600px 200px at 50% 0%, rgba(0, 0, 0, 0.25), transparent 60%),
+    #000000;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  overflow: visible;
+}
+
+/* Ensure outer section doesn't clip rounded corners */
+.trustbar {
+  overflow: visible !important;
+}
+
+.trustbar-kicker {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .6);
+  margin-bottom: 18px;
+}
+
+.trustbar-logos {
+  display: flex;
+  gap: 28px;
+  /* roomy spacing like the screenshot */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  /* keep all logos on a single line */
+  overflow-x: hidden;
+}
+
+.trustbar-logo {
+  flex: 0 0 220px;
+  /* fixed box width so all boxes match */
+  height: 100px;
+  /* fixed box height */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 18px 18px !important;
+  /* more vertical padding to avoid clipping */
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.06));
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: all .18s ease;
+  overflow: visible !important;
+}
+
+.trustbar-logo img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: 52px;
+  /* slightly larger but with padding to prevent clipping */
+  max-width: 140px;
+  object-fit: contain;
+  opacity: .95;
+  filter: grayscale(100%) brightness(220%);
+  transition: .18s ease;
+  margin: 0 auto;
+}
+
+/* Ensure UOWD logo matches the standard box size */
+.trustbar-logo img[src$="uowd.webp"],
+.trustbar-logo img[alt="University of Wollongong"] {
+  filter: none !important;
+  opacity: 1 !important;
+  max-height: 44px !important;
+  max-width: 120px !important;
+  object-fit: contain !important;
+}
+
+/* --------------------------------------------------
+   Logo fixes: ensure brand and partner logos render
+   consistently across pages and screen sizes.
+   -------------------------------------------------- */
+.company-logo-wrapper {
+  height: 64px !important;
+  /* taller container to avoid clipping */
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.company-logo {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  max-height: 48px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+.brand-image {
+  max-height: 48px !important;
+  /* larger brand mark */
+  width: auto !important;
+  display: block !important;
+}
+
+.footer-brand-image {
+  max-height: 48px !important;
+  width: auto !important;
+  display: block !important;
+}
+
+/* If images are SVGs or backgrounds, make sure they are visible */
+.background-logo {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.trustbar-logo:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, .15);
+}
+
+.trustbar-logo:hover img {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+.trustbar-logo.large {
+  flex: 0 0 140px;
+  /* same box size as others */
+}
+
+.trustbar-logo.large img {
+  max-height: 72px;
+  /* larger image inside same-sized box */
+  max-width: 180px;
+}
+
+/* Force no clipping anywhere in the trustbar stack */
+.trustbar,
+.trustbar-inner,
+.trustbar-logos,
+.trustbar-logo {
+  overflow: visible !important;
+}
+
+@media (max-width: 768px) {
+  .trustbar-logos {
+    justify-content: flex-start;
+  }
+
+  .trustbar-logo {
+    flex: 0 0 auto;
+  }
+}
+
+/* Trustbar appear animation */
+.trustbar {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.trustbar.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trustbar {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* Make How-It-Works icons larger and scale SVGs/images to fill the
+   icon container. Targets the color variants requested. */
+.how-it-works-v3-icon-holder .feature-icon {
+  width: 88px !important;
+  height: 88px !important;
+}
+
+.how-it-works-v3-icon-holder .feature-icon svg,
+.how-it-works-v3-icon-holder .feature-icon img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+.how-it-works-v3-icon-holder .feature-icon.yellow-icon {
+  width: 120px !important;
+  height: 120px !important;
+}
+
+.how-it-works-v3-icon-holder .feature-icon.cyan-icon,
+.how-it-works-v3-icon-holder .feature-icon.purple-icon {
+  width: 112px !important;
+  height: 112px !important;
+}
+
+/* Fallback: ensure any feature-icon used elsewhere also grows slightly */
+.feature-icon {
+  width: 88px !important;
+  height: 88px !important;
+}
+
+/* --------------------------------------------------
+   8) Navbar Refactor: Glassy effect & 3-zone layout
+   -------------------------------------------------- */
+
+/* Glassy effect for the navbar background */
+.navbar.w-nav,
+.navbar {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Enforce 3-zone layout in the main container */
+.navbar-container {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: none !important;
+  /* Allow full width to reach corners */
+  margin: 0 !important;
+  padding: 0 40px !important;
+  /* Spacing from edge */
+}
+
+/* Zone 1: Brand (Already .hiw-icon or .brand) */
+.hiw-icon {
+  flex: 0 0 auto !important;
+  margin-right: auto !important;
+  /* Push everything else to right/center */
+}
+
+/* Zone 2: Centered Nav Links */
+/* Note: We need to target the nav-menu container to make sure it's centered */
+.nav-menu.w-nav-menu,
+.nav-menu {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  position: absolute !important;
+  /* Absolute positioning for true center relative to parent */
+  left: 50% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  position: static !important;
+  /* Reset absolute */
+  transform: translateX(55px) !important;
+  justify-self: center !important;
+}
+
+/* Ensure link container looks like a pill if needed, or just spaced links */
+.nav-links {
+  display: flex !important;
+  gap: 32px !important;
+  /* Wider spacing */
+  padding: 14px 36px !important;
+  /* Balanced: a tiny bit less wide */
+  border-radius: 100px !important;
+  background-size: 200% 200% !important;
+  animation: pulse-blend 4s infinite ease-in-out !important;
+
+  /* Rainbow Gradient Border Restoration */
+  border: 2px solid transparent !important;
+  background-image: linear-gradient(#000000, #000000), linear-gradient(45deg, #2962FF, #FFB800, #7B2CBF) !important;
+  background-origin: border-box !important;
+  background-clip: padding-box, border-box !important;
+  background-color: #000000 !important;
+  /* Ensure solid black inside so content is readable */
+
+  /* Reset original transform and apply requested shift */
+  transform: translateX(91px) !important;
+  margin: 0 !important;
+}
+
+.nav-link.w-nav-link {
+  font-size: 17px !important;
+  /* Tiny bit bigger words */
+}
+
+.nav-links:hover {
+  background-image: linear-gradient(#080C1F, #080C1F), linear-gradient(45deg, #FFB800, #7B2CBF, #2962FF) !important;
+  box-shadow: 0 6px 20px rgba(41, 98, 255, 0.5) !important;
+  border-color: transparent !important;
+}
+
+/* Zone 3: Right Actions Container */
+.navbar-right-actions {
+  flex: 0 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 24px !important;
+  /* More separation between buttons */
+  margin-left: auto !important;
+  /* Ensure it stays right even if center is absolute */
+  position: relative;
+  z-index: 10;
+  /* Above centered nav */
+}
+
+/* "Sign In" Button Style */
+.nav-signin-button {
+  background: transparent !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  padding: 10px 20px !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 100px !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+}
+
+.nav-signin-button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: #fff !important;
+}
+
+/* "Join the Waitlist" Button Style (Replicated from .join-waitlist-button) */
+.nav-cta-button {
+  display: inline-block !important;
+  background: linear-gradient(90deg, #2962FF, #7B2CBF, #FFB800) !important;
+  /* Spectral gradient */
+  background-size: 200% 200% !important;
+  color: #fff !important;
+  font-size: 16px !important;
+  /* Tiny bit bigger (14 -> 16px) */
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  padding: 12px 28px !important;
+  /* Tiny bit bigger padding (10/24 -> 12/28) */
+  border-radius: 100px !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  animation: pulse-blend 4s infinite ease-in-out !important;
+  border: none !important;
+  line-height: normal !important;
+}
+
+.nav-cta-button:hover {
+  animation: pulse-blend-hover 2s infinite ease-in-out, glow-transition 2s infinite ease-in-out !important;
+  box-shadow: 0 8px 20px rgba(41, 98, 255, 0.5), 0 8px 20px rgba(255, 184, 0, 0.5), 0 8px 20px rgba(123, 44, 191, 0.5) !important;
+  transform: scale(1.05) !important;
+}
+
+.nav-cta-button:active {
+  transform: scale(0.98) !important;
+}
+
+/* Mobile Responsiveness for new Navbar */
+@media (max-width: 991px) {
+  .nav-menu.w-nav-menu {
+    position: static !important;
+    transform: none !important;
+    display: none !important;
+    /* Let Webflow handle toggle or hide it */
+  }
+
+  .navbar-right-actions {
+    display: none !important;
+    /* Hide CTA on mobile for now or adjust layout */
+  }
+
+  .navbar-container {
+    justify-content: space-between !important;
+  }
+
+  .navbar-container {
+    justify-content: space-between !important;
+  }
+}
+
+/* 9) Reduce padding between "Meet the Team" and "FAQ" */
+.org-section,
+.section:has(.org-role) {
+  padding-bottom: 0px !important;
+  margin-bottom: -40px !important;
+  /* Pull them closer as requested ("Even more") */
+  position: relative;
+  z-index: 2;
+}
+
+#faq-about .section {
+  padding-top: 0px !important;
+  margin-top: 0px !important;
+}
+
+/* 10) Add spacing between FAQ content and Footer section */
+/* Target the FAQ holder that contains all FAQ items */
+.faq-holder {
+  margin-bottom: 69px !important;
+  padding-bottom: 50px !important;
+}
+
+/* Ensure the FAQ section itself doesn't add extra top spacing */
+#faq-about .section {
+  padding-top: 0px !important;
+  margin-top: 0px !important;
+}
+
+/* Remove any conflicting spacing from footer */
+.footer-section-separated {
+  margin-top: 0px !important;
+  padding-top: 0px !important;
+}
+
+/* 11) Remove rainbow gradient background from contact page */
+.contact-v2 .hero-background-v3,
+.contact-v2 .gradient-tpo {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* 12) Fix overflow clipping and add visible glow to contact form */
+
+/* Remove overflow hidden from colored-block on contact page to allow glow to show */
+.contact-v2 .colored-block {
+  overflow: visible !important;
+}
+
+/* Contact form holder with gradient border */
+.contact-form-holder {
+  position: relative !important;
+  border-radius: 24px !important;
+  padding: 40px !important;
+  background: #000000 !important;
+  border: 3px solid transparent !important;
+  background-image: linear-gradient(#000000, #000000), linear-gradient(45deg, #2962FF, #FFB800, #7B2CBF) !important;
+  background-origin: border-box !important;
+  background-clip: padding-box, border-box !important;
+
+  /* Subtle glow matching the gradient border colors (blue → yellow → purple) */
+  box-shadow:
+    /* Soft colored glows matching the border gradient */
+    0 0 30px rgba(41, 98, 255, 0.3),
+    /* Blue glow */
+    0 0 50px rgba(255, 184, 0, 0.25),
+    /* Yellow glow */
+    0 0 70px rgba(123, 44, 191, 0.2),
+    /* Purple glow */
+    /* Subtle depth shadow */
+    0 15px 40px rgba(0, 0, 0, 0.5) !important;
+}

@@ -1,0 +1,108 @@
+/* ================================
+   Geist Typeface – Global Setup
+   Clean, modern, Helvetica-like
+   ================================ */
+
+/* Regular */
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* SemiBold */
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold */
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ================================
+   Global Typography
+   ================================ */
+
+html,
+body {
+  font-family: "Geist", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ================================
+   Headings
+   ================================ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Geist", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+/* ================================
+   Paragraphs & Text
+   ================================ */
+
+p,
+span,
+a,
+li,
+button,
+input,
+textarea {
+  font-family: "Geist", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+/* ================================
+   Hero / Gradient Title
+   ================================ */
+
+.gradient-title {
+  font-family: "Geist", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* ================================
+   Buttons
+   ================================ */
+
+button,
+.btn,
+a.button {
+  font-family: "Geist", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* ================================
+   Inputs & Forms
+   ================================ */
+
+input,
+textarea,
+select {
+  font-family: "Geist", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
